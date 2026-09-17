@@ -67,7 +67,7 @@ def main() -> None:
         project_root
         / "data"
         / "processed"
-        / "chunks_256.json"
+        / "chunks_512.json"
     )
 
     chunks = load_chunks(chunks_path)
