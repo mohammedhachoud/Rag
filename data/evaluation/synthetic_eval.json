@@ -6,9 +6,15 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "The four functions are GOVERN, MAP, MEASURE, and MANAGE.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0003"
+      "nist-ai-100-1-pdf_256_0005",
+      "nist-ai-100-1-pdf_256_0011",
+      "nist-ai-100-1-pdf_256_0045",
+      "nist-ai-100-1-pdf_256_0046"
     ],
     "relevant_chunks_512": [
+      "nist-ai-100-1-pdf_512_0003",
+      "nist-ai-100-1-pdf_512_0005",
+      "nist-ai-100-1-pdf_512_0021",
       "nist-ai-100-1-pdf_512_0022"
     ]
   },
@@ -22,6 +28,7 @@
       "nist-ai-100-1-pdf_256_0048"
     ],
     "relevant_chunks_512": [
+      "nist-ai-100-1-pdf_512_0022",
       "nist-ai-100-1-pdf_512_0023"
     ]
   },
@@ -43,9 +50,9 @@
     "query": "What is the purpose of the MEASURE function?",
     "query_type": "direct_lexical",
     "document_id": "NIST.AI.100-1.pdf",
-    "expected_answer": "MEASURE employs quantitative, qualitative, or mixed methods to analyze, assess, benchmark, and monitor AI risk and trustworthiness.",
+    "expected_answer": "MEASURE uses quantitative, qualitative, or mixed-method tools, techniques, and methodologies to analyze, assess, benchmark, and monitor AI risk and related impacts.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0063"
+      "nist-ai-100-1-pdf_256_0061"
     ],
     "relevant_chunks_512": [
       "nist-ai-100-1-pdf_512_0029"
@@ -58,7 +65,8 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "The options include mitigating, transferring, avoiding, or accepting risk.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0069"
+      "nist-ai-100-1-pdf_256_0069",
+      "nist-ai-100-1-pdf_256_0070"
     ],
     "relevant_chunks_512": [
       "nist-ai-100-1-pdf_512_0033"
@@ -71,10 +79,13 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "Valid and reliable is described as a necessary condition of trustworthiness.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0005"
+      "nist-ai-100-1-pdf_256_0005",
+      "nist-ai-100-1-pdf_256_0029"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0002"
+      "nist-ai-100-1-pdf_512_0002",
+      "nist-ai-100-1-pdf_512_0003",
+      "nist-ai-100-1-pdf_512_0014"
     ]
   },
   {
@@ -84,9 +95,14 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "TEVV stands for test, evaluation, verification, and validation.",
     "relevant_chunks_256": [
+      "nist-ai-100-1-pdf_256_0025",
+      "nist-ai-100-1-pdf_256_0062",
       "nist-ai-100-1-pdf_256_0076"
     ],
     "relevant_chunks_512": [
+      "nist-ai-100-1-pdf_512_0012",
+      "nist-ai-100-1-pdf_512_0029",
+      "nist-ai-100-1-pdf_512_0035",
       "nist-ai-100-1-pdf_512_0036"
     ]
   },
@@ -134,12 +150,14 @@
     "query": "What is the Generative AI Profile intended to help organizations do?",
     "query_type": "direct_lexical",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "It helps organizations identify risks unique to or worsened by generative AI and propose actions for managing them.",
+    "expected_answer": "It defines risks that are novel to or exacerbated by generative AI and provides suggested actions to help organizations govern, map, measure, and manage those risks.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0067"
+      "nist-ai-600-1-pdf_256_0007",
+      "nist-ai-600-1-pdf_256_0008"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0031"
+      "nist-ai-600-1-pdf_512_0003",
+      "nist-ai-600-1-pdf_512_0004"
     ]
   },
   {
@@ -149,9 +167,11 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "Confabulation is the production of confidently stated but erroneous or false content by a generative AI system.",
     "relevant_chunks_256": [
+      "nist-ai-600-1-pdf_256_0015",
       "nist-ai-600-1-pdf_256_0021"
     ],
     "relevant_chunks_512": [
+      "nist-ai-600-1-pdf_512_0007",
       "nist-ai-600-1-pdf_512_0010"
     ]
   },
@@ -160,7 +180,7 @@
     "query": "What is data provenance?",
     "query_type": "direct_lexical",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "Data provenance records the origin, history, transformations, and lineage of data or digital content.",
+    "expected_answer": "Data provenance refers to tracking the origin and history of input data through metadata and digital watermarking techniques.",
     "relevant_chunks_256": [
       "nist-ai-600-1-pdf_256_0127"
     ],
@@ -175,10 +195,13 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "It recommends tracing the origin and modifications of digital content.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0126"
+      "nist-ai-600-1-pdf_256_0076",
+      "nist-ai-600-1-pdf_256_0128"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0059"
+      "nist-ai-600-1-pdf_512_0035",
+      "nist-ai-600-1-pdf_512_0036",
+      "nist-ai-600-1-pdf_512_0060"
     ]
   },
   {
@@ -204,7 +227,8 @@
       "nist-ai-600-1-pdf_256_0095"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0044"
+      "nist-ai-600-1-pdf_512_0044",
+      "nist-ai-600-1-pdf_512_0045"
     ]
   },
   {
@@ -217,7 +241,8 @@
       "nist-ai-600-1-pdf_256_0123"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0057"
+      "nist-ai-600-1-pdf_512_0057",
+      "nist-ai-600-1-pdf_512_0058"
     ]
   },
   {
@@ -227,10 +252,12 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "It recommends publishing regular reports describing system performance, feedback received, and improvements made.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0112"
+      "nist-ai-600-1-pdf_256_0112",
+      "nist-ai-600-1-pdf_256_0113"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0052"
+      "nist-ai-600-1-pdf_512_0052",
+      "nist-ai-600-1-pdf_512_0053"
     ]
   },
   {
@@ -238,12 +265,13 @@
     "query": "What is model collapse?",
     "query_type": "direct_lexical",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "Model collapse is degradation that can occur when models are recursively trained on synthetic or AI-generated data.",
+    "expected_answer": "Model collapse can occur when model training over-relies on synthetic data, causing data points to disappear from the distribution of the new model's outputs and potentially producing increasingly homogenized outputs.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0095"
+      "nist-ai-600-1-pdf_256_0031"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0044"
+      "nist-ai-600-1-pdf_512_0014",
+      "nist-ai-600-1-pdf_512_0015"
     ]
   },
   {
@@ -253,10 +281,13 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "They support tracking content origin and history and helping users distinguish authentic from manipulated or AI-generated content.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0102"
+      "nist-ai-600-1-pdf_256_0126",
+      "nist-ai-600-1-pdf_256_0127",
+      "nist-ai-600-1-pdf_256_0128"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0059"
+      "nist-ai-600-1-pdf_512_0059",
+      "nist-ai-600-1-pdf_512_0060"
     ]
   },
   {
@@ -264,7 +295,7 @@
     "query": "Why should AI risk work begin during planning and design rather than after deployment?",
     "query_type": "paraphrased_semantic",
     "document_id": "NIST.AI.100-1.pdf",
-    "expected_answer": "Starting early allows safety considerations and risk controls to be incorporated throughout the lifecycle instead of reacting only after harm occurs.",
+    "expected_answer": "Using safety considerations as early as planning and design can prevent failures or conditions that make an AI system dangerous.",
     "relevant_chunks_256": [
       "nist-ai-100-1-pdf_256_0035"
     ],
@@ -277,12 +308,13 @@
     "query": "Why can the same AI system create different risks in different deployments?",
     "query_type": "paraphrased_semantic",
     "document_id": "NIST.AI.100-1.pdf",
-    "expected_answer": "Risks depend on context, users, operating conditions, and how a system is used, so a new deployment can differ from the developer's original assumptions.",
+    "expected_answer": "Risk depends on the specific use case and context: deployers may use a system in ways that create risks the developer did not perceive, and operational risks may differ from pre-deployment measurements.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0031"
+      "nist-ai-100-1-pdf_256_0017",
+      "nist-ai-100-1-pdf_256_0018"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0015"
+      "nist-ai-100-1-pdf_512_0008"
     ]
   },
   {
@@ -290,7 +322,7 @@
     "query": "Why does NIST call AI systems socio-technical?",
     "query_type": "paraphrased_semantic",
     "document_id": "NIST.AI.100-1.pdf",
-    "expected_answer": "Their outcomes arise from interactions among technical components, human behavior, social dynamics, and the deployment context.",
+    "expected_answer": "AI systems are influenced by societal dynamics and human behavior, and their risks and benefits emerge from interactions among technical aspects, use, operators, other AI systems, and the social context of deployment.",
     "relevant_chunks_256": [
       "nist-ai-100-1-pdf_256_0007"
     ],
@@ -305,10 +337,13 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "Diverse experience, expertise, and backgrounds broaden the identification of impacts, assumptions, and risks across the AI lifecycle.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0052"
+      "nist-ai-100-1-pdf_256_0024",
+      "nist-ai-100-1-pdf_256_0046"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0012"
+      "nist-ai-100-1-pdf_512_0011",
+      "nist-ai-100-1-pdf_512_0012",
+      "nist-ai-100-1-pdf_512_0022"
     ]
   },
   {
@@ -318,9 +353,14 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "Trustworthiness also depends on safety, security, accountability, transparency, explainability, privacy, and fairness in its context of use.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0029"
+      "nist-ai-100-1-pdf_256_0011",
+      "nist-ai-100-1-pdf_256_0028",
+      "nist-ai-100-1-pdf_256_0029",
+      "nist-ai-100-1-pdf_256_0030"
     ],
     "relevant_chunks_512": [
+      "nist-ai-100-1-pdf_512_0005",
+      "nist-ai-100-1-pdf_512_0013",
       "nist-ai-100-1-pdf_512_0014"
     ]
   },
@@ -329,11 +369,12 @@
     "query": "How can transparency increase confidence in an AI system?",
     "query_type": "paraphrased_semantic",
     "document_id": "NIST.AI.100-1.pdf",
-    "expected_answer": "It gives relevant people information appropriate to their roles so they can understand the system, its outputs, and its limitations.",
+    "expected_answer": "Meaningful transparency gives people information appropriate to their role and knowledge; greater understanding increases confidence in the AI system.",
     "relevant_chunks_256": [
       "nist-ai-100-1-pdf_256_0037"
     ],
     "relevant_chunks_512": [
+      "nist-ai-100-1-pdf_512_0017",
       "nist-ai-100-1-pdf_512_0018"
     ]
   },
@@ -342,11 +383,13 @@
     "query": "Why must AI risk metrics be selected with deployment context in mind?",
     "query_type": "paraphrased_semantic",
     "document_id": "NIST.AI.100-1.pdf",
-    "expected_answer": "Developer metrics may not align with the methods, priorities, or tolerances of the organization operating the system.",
+    "expected_answer": "Risk metrics or methodologies used by the developer may not align with those used by the organization that deploys or operates the system, and context-specific uses can introduce different risks.",
     "relevant_chunks_256": [
+      "nist-ai-100-1-pdf_256_0015",
       "nist-ai-100-1-pdf_256_0016"
     ],
     "relevant_chunks_512": [
+      "nist-ai-100-1-pdf_512_0007",
       "nist-ai-100-1-pdf_512_0008"
     ]
   },
@@ -357,10 +400,18 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "Risks, impacts, data, and system behavior can change, so measurement and management must continue during operation.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0063"
+      "nist-ai-100-1-pdf_256_0057",
+      "nist-ai-100-1-pdf_256_0062",
+      "nist-ai-100-1-pdf_256_0063",
+      "nist-ai-100-1-pdf_256_0069",
+      "nist-ai-100-1-pdf_256_0071"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0030"
+      "nist-ai-100-1-pdf_512_0027",
+      "nist-ai-100-1-pdf_512_0029",
+      "nist-ai-100-1-pdf_512_0030",
+      "nist-ai-100-1-pdf_512_0032",
+      "nist-ai-100-1-pdf_512_0033"
     ]
   },
   {
@@ -368,8 +419,9 @@
     "query": "How can pre-trained models create both benefits and risks?",
     "query_type": "paraphrased_semantic",
     "document_id": "NIST.AI.100-1.pdf",
-    "expected_answer": "They can improve performance and advance research while increasing uncertainty, opacity, bias-management difficulty, and reproducibility concerns.",
+    "expected_answer": "Pre-trained models and transfer learning can advance research and improve accuracy, resilience, and performance, but can also increase statistical uncertainty and create problems for bias management, scientific validity, and reproducibility.",
     "relevant_chunks_256": [
+      "nist-ai-100-1-pdf_256_0081",
       "nist-ai-100-1-pdf_256_0082"
     ],
     "relevant_chunks_512": [
@@ -381,12 +433,16 @@
     "query": "Why should people validating an AI system be distinct from its builders?",
     "query_type": "paraphrased_semantic",
     "document_id": "NIST.AI.100-1.pdf",
-    "expected_answer": "Separation supports independent scrutiny and reduces conflicts or blind spots in verification and validation.",
+    "expected_answer": "Separating builders from verification and validation is a best practice; independent review can improve testing effectiveness and mitigate internal bias and conflicts of interest.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0076"
+      "nist-ai-100-1-pdf_256_0005",
+      "nist-ai-100-1-pdf_256_0028",
+      "nist-ai-100-1-pdf_256_0062"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0036"
+      "nist-ai-100-1-pdf_512_0002",
+      "nist-ai-100-1-pdf_512_0013",
+      "nist-ai-100-1-pdf_512_0029"
     ]
   },
   {
@@ -396,10 +452,13 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "It is voluntary, flexible, non-sector-specific, and use-case agnostic, allowing adoption in varying degrees and capacities.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0009"
+      "nist-ai-100-1-pdf_256_0009",
+      "nist-ai-100-1-pdf_256_0047"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0004"
+      "nist-ai-100-1-pdf_512_0004",
+      "nist-ai-100-1-pdf_512_0005",
+      "nist-ai-100-1-pdf_512_0022"
     ]
   },
   {
@@ -409,10 +468,14 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "Human decisions and organizational processes can introduce their own cognitive and systemic biases throughout the lifecycle.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0086"
+      "nist-ai-100-1-pdf_256_0043",
+      "nist-ai-100-1-pdf_256_0086",
+      "nist-ai-100-1-pdf_256_0087"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0040"
+      "nist-ai-100-1-pdf_512_0020",
+      "nist-ai-100-1-pdf_512_0040",
+      "nist-ai-100-1-pdf_512_0041"
     ]
   },
   {
@@ -433,12 +496,13 @@
     "query": "How can privacy-enhancing methods reduce AI data risks?",
     "query_type": "paraphrased_semantic",
     "document_id": "NIST.AI.100-1.pdf",
-    "expected_answer": "Methods such as de-identification, aggregation, and data minimization can limit exposure of personal information.",
+    "expected_answer": "Privacy-enhancing technologies and data-minimizing methods such as de-identification and aggregation can support the design of privacy-enhanced AI systems.",
     "relevant_chunks_256": [
       "nist-ai-100-1-pdf_256_0041"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0019"
+      "nist-ai-100-1-pdf_512_0019",
+      "nist-ai-100-1-pdf_512_0020"
     ]
   },
   {
@@ -451,7 +515,8 @@
       "nist-ai-100-1-pdf_256_0046"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0021"
+      "nist-ai-100-1-pdf_512_0021",
+      "nist-ai-100-1-pdf_512_0022"
     ]
   },
   {
@@ -459,11 +524,14 @@
     "query": "Why can generative models make false information especially persuasive?",
     "query_type": "paraphrased_semantic",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "They can produce fluent, confident, human-like content even when claims are erroneous, making mistakes difficult for users to recognize.",
+    "expected_answer": "Confabulations are often presented confidently, so users may believe and act on false content; fabricated logic, citations, or claims of human traits can further encourage misplaced trust.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0022"
+      "nist-ai-600-1-pdf_256_0021",
+      "nist-ai-600-1-pdf_256_0022",
+      "nist-ai-600-1-pdf_256_0023"
     ],
     "relevant_chunks_512": [
+      "nist-ai-600-1-pdf_512_0010",
       "nist-ai-600-1-pdf_512_0011"
     ]
   },
@@ -474,9 +542,13 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "Large volumes of realistic generated content can obscure provenance, spread misinformation, enable impersonation, and make authentic material harder to distinguish.",
     "relevant_chunks_256": [
+      "nist-ai-600-1-pdf_256_0033",
+      "nist-ai-600-1-pdf_256_0034",
+      "nist-ai-600-1-pdf_256_0125",
       "nist-ai-600-1-pdf_256_0126"
     ],
     "relevant_chunks_512": [
+      "nist-ai-600-1-pdf_512_0016",
       "nist-ai-600-1-pdf_512_0059"
     ]
   },
@@ -487,10 +559,13 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "Fine-tuning or adapting it to a new domain can change behavior and risk, so earlier measurements and supplier assumptions may no longer hold.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0106"
+      "nist-ai-600-1-pdf_256_0072",
+      "nist-ai-600-1-pdf_256_0106",
+      "nist-ai-600-1-pdf_256_0107"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0049"
+      "nist-ai-600-1-pdf_512_0034",
+      "nist-ai-600-1-pdf_512_0050"
     ]
   },
   {
@@ -500,10 +575,18 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "Their feedback reveals real interaction patterns, usability problems, misuse, and impacts that laboratory testing may miss.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0098"
+      "nist-ai-600-1-pdf_256_0097",
+      "nist-ai-600-1-pdf_256_0098",
+      "nist-ai-600-1-pdf_256_0121",
+      "nist-ai-600-1-pdf_256_0128",
+      "nist-ai-600-1-pdf_256_0129"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0046"
+      "nist-ai-600-1-pdf_512_0045",
+      "nist-ai-600-1-pdf_512_0046",
+      "nist-ai-600-1-pdf_512_0056",
+      "nist-ai-600-1-pdf_512_0057",
+      "nist-ai-600-1-pdf_512_0060"
     ]
   },
   {
@@ -526,10 +609,14 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "It can document where content came from and how it was changed, giving users evidence for authenticity assessments.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0127"
+      "nist-ai-600-1-pdf_256_0125",
+      "nist-ai-600-1-pdf_256_0126",
+      "nist-ai-600-1-pdf_256_0127",
+      "nist-ai-600-1-pdf_256_0128"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0059"
+      "nist-ai-600-1-pdf_512_0059",
+      "nist-ai-600-1-pdf_512_0060"
     ]
   },
   {
@@ -539,7 +626,9 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "It shows how people actually interpret, use, and act on generated information in realistic settings.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0121"
+      "nist-ai-600-1-pdf_256_0121",
+      "nist-ai-600-1-pdf_256_0122",
+      "nist-ai-600-1-pdf_256_0123"
     ],
     "relevant_chunks_512": [
       "nist-ai-600-1-pdf_512_0057"
@@ -550,9 +639,10 @@
     "query": "How can retrieval-augmented generation reduce some output risks?",
     "query_type": "paraphrased_semantic",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "Grounding generation in retrieved sources can improve factual support, especially when sources and citations are also reviewed and verified.",
+    "expected_answer": "Organizations can reduce risk by verifying that retrieval-augmented generation data is grounded and by reviewing and verifying sources and citations during pre-deployment measurement and ongoing monitoring.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0082"
+      "nist-ai-600-1-pdf_256_0082",
+      "nist-ai-600-1-pdf_256_0083"
     ],
     "relevant_chunks_512": [
       "nist-ai-600-1-pdf_512_0039"
@@ -560,15 +650,19 @@
   },
   {
     "query_id": "q044",
-    "query": "Why must content-moderation tests reflect deployment conditions?",
+    "query": "Why should GAI performance tests reflect deployment conditions?",
     "query_type": "paraphrased_semantic",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "The effectiveness of safeguards depends on users, context, prompts, languages, and uses encountered in operation.",
+    "expected_answer": "Narrow, anecdotal, laboratory, or benchmark tests may not generalize to real-world use, especially because prompts and contexts vary; performance and assurance criteria should therefore be demonstrated under conditions similar to deployment.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0082"
+      "nist-ai-600-1-pdf_256_0081",
+      "nist-ai-600-1-pdf_256_0082",
+      "nist-ai-600-1-pdf_256_0120",
+      "nist-ai-600-1-pdf_256_0121"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0038"
+      "nist-ai-600-1-pdf_512_0038",
+      "nist-ai-600-1-pdf_512_0056"
     ]
   },
   {
@@ -578,10 +672,17 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "It may reproduce, expose, or generate material involving copyrighted, licensed, patented, proprietary, or trademarked information.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0091"
+      "nist-ai-600-1-pdf_256_0019",
+      "nist-ai-600-1-pdf_256_0037",
+      "nist-ai-600-1-pdf_256_0091",
+      "nist-ai-600-1-pdf_256_0107"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0042"
+      "nist-ai-600-1-pdf_512_0009",
+      "nist-ai-600-1-pdf_512_0017",
+      "nist-ai-600-1-pdf_512_0018",
+      "nist-ai-600-1-pdf_512_0042",
+      "nist-ai-600-1-pdf_512_0050"
     ]
   },
   {
@@ -589,11 +690,14 @@
     "query": "Why should organizations measure inference impacts separately from training impacts?",
     "query_type": "paraphrased_semantic",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "Resource use varies by lifecycle stage and usage volume, so deployment and inference can create substantial cumulative energy or water costs.",
+    "expected_answer": "Energy and environmental impacts vary across pre-training, fine-tuning, and inference, so organizations should distinguish resources used at inference time from the additional resources required at training time.",
     "relevant_chunks_256": [
+      "nist-ai-600-1-pdf_256_0027",
+      "nist-ai-600-1-pdf_256_0028",
       "nist-ai-600-1-pdf_256_0095"
     ],
     "relevant_chunks_512": [
+      "nist-ai-600-1-pdf_512_0013",
       "nist-ai-600-1-pdf_512_0045"
     ]
   },
@@ -604,10 +708,12 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "Reporting performance, feedback, and improvements increases transparency and enables stakeholders to track changes and accountability.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0112"
+      "nist-ai-600-1-pdf_256_0112",
+      "nist-ai-600-1-pdf_256_0113"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0052"
+      "nist-ai-600-1-pdf_512_0052",
+      "nist-ai-600-1-pdf_512_0053"
     ]
   },
   {
@@ -615,9 +721,10 @@
     "query": "Why are broad benchmark scores insufficient for every GAI deployment?",
     "query_type": "paraphrased_semantic",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "Actual risk depends on the specific task, context, population, integrations, and ways the system may be used or repurposed.",
+    "expected_answer": "Laboratory and benchmark results may not extrapolate to real-world conditions; prompt sensitivity and heterogeneous contexts of use can widen the gap between benchmark performance and deployed behavior.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0119"
+      "nist-ai-600-1-pdf_256_0120",
+      "nist-ai-600-1-pdf_256_0121"
     ],
     "relevant_chunks_512": [
       "nist-ai-600-1-pdf_512_0056"
@@ -628,12 +735,12 @@
     "query": "How can human overrides reveal weaknesses in a GAI system?",
     "query_type": "paraphrased_semantic",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "Tracking when and why people override outputs can expose errors, provenance problems, and recurring conditions requiring improvement.",
+    "expected_answer": "Monitoring and documenting overrides can show whether human or system interventions are linked to content-provenance issues.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0127"
+      "nist-ai-600-1-pdf_256_0099"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0059"
+      "nist-ai-600-1-pdf_512_0046"
     ]
   },
   {
@@ -643,10 +750,11 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "Domain experts can recognize specialized harms, realistic misuse, and context-specific failure modes that generic testing may overlook.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0078"
+      "nist-ai-600-1-pdf_256_0123",
+      "nist-ai-600-1-pdf_256_0124"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0039"
+      "nist-ai-600-1-pdf_512_0058"
     ]
   },
   {
@@ -659,7 +767,8 @@
       "nist-ai-100-1-pdf_256_0013"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0006"
+      "nist-ai-100-1-pdf_512_0006",
+      "nist-ai-100-1-pdf_512_0007"
     ]
   },
   {
@@ -669,10 +778,14 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "It refers to AI whose characteristics include validity, reliability, safety, security, resilience, accountability, transparency, explainability, interpretability, privacy enhancement, and managed harmful bias.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0028"
+      "nist-ai-100-1-pdf_256_0011",
+      "nist-ai-100-1-pdf_256_0028",
+      "nist-ai-100-1-pdf_256_0029"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0002"
+      "nist-ai-100-1-pdf_512_0005",
+      "nist-ai-100-1-pdf_512_0013",
+      "nist-ai-100-1-pdf_512_0014"
     ]
   },
   {
@@ -682,10 +795,12 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "Explainability is representing the mechanisms underlying an AI system's operation in ways people can understand.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0039"
+      "nist-ai-100-1-pdf_256_0039",
+      "nist-ai-100-1-pdf_256_0040"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0018"
+      "nist-ai-100-1-pdf_512_0018",
+      "nist-ai-100-1-pdf_512_0019"
     ]
   },
   {
@@ -695,9 +810,11 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "Interpretability is the meaning of an AI system's output in the context of its designed functional purpose.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0039"
+      "nist-ai-100-1-pdf_256_0039",
+      "nist-ai-100-1-pdf_256_0040"
     ],
     "relevant_chunks_512": [
+      "nist-ai-100-1-pdf_512_0018",
       "nist-ai-100-1-pdf_512_0019"
     ]
   },
@@ -721,10 +838,12 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "Residual risk is the risk remaining after risk-response measures have been applied.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0065"
+      "nist-ai-100-1-pdf_256_0022",
+      "nist-ai-100-1-pdf_256_0070"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0031"
+      "nist-ai-100-1-pdf_512_0011",
+      "nist-ai-100-1-pdf_512_0033"
     ]
   },
   {
@@ -734,7 +853,8 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "A profile describes how AI RMF outcomes apply to a particular use case, sector, organization, or common activity.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0072"
+      "nist-ai-100-1-pdf_256_0072",
+      "nist-ai-100-1-pdf_256_0073"
     ],
     "relevant_chunks_512": [
       "nist-ai-100-1-pdf_512_0034"
@@ -747,7 +867,8 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "Harmful bias is bias that can produce inequitable or otherwise undesirable outcomes, including systemic, computational, and human forms.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0042"
+      "nist-ai-100-1-pdf_256_0042",
+      "nist-ai-100-1-pdf_256_0043"
     ],
     "relevant_chunks_512": [
       "nist-ai-100-1-pdf_512_0020"
@@ -755,10 +876,10 @@
   },
   {
     "query_id": "q059",
-    "query": "Define a generative AI system.",
+    "query": "Define generative AI as used in the GAI Profile.",
     "query_type": "definitions_concepts",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "A generative AI system uses a model to produce synthetic content such as text, images, audio, video, or other digital material.",
+    "expected_answer": "Generative AI is the class of AI models that emulate the structure and characteristics of input data to generate derived synthetic content, including images, video, audio, text, and other digital content.",
     "relevant_chunks_256": [
       "nist-ai-600-1-pdf_256_0008"
     ],
@@ -771,12 +892,13 @@
     "query": "What is information integrity?",
     "query_type": "definitions_concepts",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "Information integrity concerns the authenticity, accuracy, provenance, and reliability of information and the information ecosystem.",
+    "expected_answer": "Information integrity concerns information and the patterns of its creation, exchange, and consumption. High-integrity information distinguishes fact from fiction, opinion, and inference; acknowledges uncertainty; is transparent about vetting; is source-linked, accurate, reliable, verifiable, and supported by a clear chain of custody.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0087"
+      "nist-ai-600-1-pdf_256_0032",
+      "nist-ai-600-1-pdf_256_0033"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0059"
+      "nist-ai-600-1-pdf_512_0015"
     ]
   },
   {
@@ -789,20 +911,22 @@
       "nist-ai-600-1-pdf_256_0036"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0041"
+      "nist-ai-600-1-pdf_512_0017"
     ]
   },
   {
     "query_id": "q062",
-    "query": "What is the GAI value chain?",
+    "query": "What does GAI value chain and component integration involve?",
     "query_type": "definitions_concepts",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "It is the network of actors, components, models, data, infrastructure, and services involved in developing, deploying, and operating a GAI system.",
+    "expected_answer": "GAI value chains involve third-party components such as procured datasets, pre-trained models, and software libraries. Improperly obtained or insufficiently vetted components can reduce transparency and accountability and can introduce downstream accuracy and robustness problems.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0061"
+      "nist-ai-600-1-pdf_256_0039",
+      "nist-ai-600-1-pdf_256_0040"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0028"
+      "nist-ai-600-1-pdf_512_0018",
+      "nist-ai-600-1-pdf_512_0019"
     ]
   },
   {
@@ -812,6 +936,7 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "Content provenance is information about the origin and modification history of digital content.",
     "relevant_chunks_256": [
+      "nist-ai-600-1-pdf_256_0126",
       "nist-ai-600-1-pdf_256_0127"
     ],
     "relevant_chunks_512": [
@@ -825,9 +950,11 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "AI red-teaming is adversarial testing intended to identify harmful behaviors, vulnerabilities, failure modes, and the limits of safeguards.",
     "relevant_chunks_256": [
+      "nist-ai-600-1-pdf_256_0121",
       "nist-ai-600-1-pdf_256_0123"
     ],
     "relevant_chunks_512": [
+      "nist-ai-600-1-pdf_512_0057",
       "nist-ai-600-1-pdf_512_0058"
     ]
   },
@@ -838,10 +965,13 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "It is the risk that generated content reinforces harmful stereotypes or reduces diversity by producing overly uniform outputs and perspectives.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0065"
+      "nist-ai-600-1-pdf_256_0029",
+      "nist-ai-600-1-pdf_256_0030",
+      "nist-ai-600-1-pdf_256_0031"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0014"
+      "nist-ai-600-1-pdf_512_0014",
+      "nist-ai-600-1-pdf_512_0015"
     ]
   },
   {
@@ -851,10 +981,12 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "They are valid and reliable; safe; secure and resilient; accountable and transparent; explainable and interpretable; privacy-enhanced; and fair with harmful bias managed.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0003"
+      "nist-ai-100-1-pdf_256_0011",
+      "nist-ai-100-1-pdf_256_0028"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0002"
+      "nist-ai-100-1-pdf_512_0005",
+      "nist-ai-100-1-pdf_512_0013"
     ]
   },
   {
@@ -864,10 +996,16 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "There are four: GOVERN, MAP, MEASURE, and MANAGE.",
     "relevant_chunks_256": [
+      "nist-ai-100-1-pdf_256_0005",
+      "nist-ai-100-1-pdf_256_0011",
+      "nist-ai-100-1-pdf_256_0045",
       "nist-ai-100-1-pdf_256_0046"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0021"
+      "nist-ai-100-1-pdf_512_0002",
+      "nist-ai-100-1-pdf_512_0005",
+      "nist-ai-100-1-pdf_512_0021",
+      "nist-ai-100-1-pdf_512_0022"
     ]
   },
   {
@@ -877,7 +1015,8 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "Mitigate, transfer, avoid, or accept the risk.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0069"
+      "nist-ai-100-1-pdf_256_0069",
+      "nist-ai-100-1-pdf_256_0070"
     ],
     "relevant_chunks_512": [
       "nist-ai-100-1-pdf_512_0033"
@@ -916,6 +1055,7 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "Systemic bias, computational and statistical bias, and human-cognitive bias.",
     "relevant_chunks_256": [
+      "nist-ai-100-1-pdf_256_0042",
       "nist-ai-100-1-pdf_256_0043"
     ],
     "relevant_chunks_512": [
@@ -924,14 +1064,18 @@
   },
   {
     "query_id": "q072",
-    "query": "List the four major groups of AI lifecycle actor tasks described in the appendix.",
+    "query": "What five categories of AI actor tasks are described first in Appendix A?",
     "query_type": "lists_numeric_facts",
     "document_id": "NIST.AI.100-1.pdf",
-    "expected_answer": "Design and development; deployment; operation and monitoring; and test, evaluation, verification, and validation.",
+    "expected_answer": "AI design; AI development; AI deployment; operation and monitoring; and test, evaluation, verification, and validation (TEVV).",
     "relevant_chunks_256": [
+      "nist-ai-100-1-pdf_256_0074",
+      "nist-ai-100-1-pdf_256_0075",
       "nist-ai-100-1-pdf_256_0076"
     ],
     "relevant_chunks_512": [
+      "nist-ai-100-1-pdf_512_0034",
+      "nist-ai-100-1-pdf_512_0035",
       "nist-ai-100-1-pdf_512_0036"
     ]
   },
@@ -950,15 +1094,21 @@
   },
   {
     "query_id": "q074",
-    "query": "How many primary GAI risk areas are listed in the profile?",
+    "query": "How many risks unique to or exacerbated by GAI are enumerated in Section 2?",
     "query_type": "lists_numeric_facts",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "The profile identifies 12 primary generative AI risk areas.",
+    "expected_answer": "The numbered list runs from 1 through 12, so Section 2 enumerates 12 GAI risks.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0096"
+      "nist-ai-600-1-pdf_256_0014",
+      "nist-ai-600-1-pdf_256_0015",
+      "nist-ai-600-1-pdf_256_0016",
+      "nist-ai-600-1-pdf_256_0017",
+      "nist-ai-600-1-pdf_256_0019"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0045"
+      "nist-ai-600-1-pdf_512_0007",
+      "nist-ai-600-1-pdf_512_0008",
+      "nist-ai-600-1-pdf_512_0009"
     ]
   },
   {
@@ -968,23 +1118,29 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "Examples include text, images, audio, and video.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0008"
+      "nist-ai-600-1-pdf_256_0008",
+      "nist-ai-600-1-pdf_256_0024"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0004"
+      "nist-ai-600-1-pdf_512_0004",
+      "nist-ai-600-1-pdf_512_0012"
     ]
   },
   {
     "query_id": "q076",
-    "query": "List three environmental resources or effects that GAI evaluation may track.",
+    "query": "Which environmental impacts and lifecycle activities does the profile say organizations should measure or estimate?",
     "query_type": "lists_numeric_facts",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "Examples include energy use, water consumption, and other environmental impacts associated with training, fine-tuning, and inference.",
+    "expected_answer": "Organizations should measure or estimate energy and water consumption for training, fine-tuning, and deployment, distinguish inference-time resources from training resources, and consider energy and carbon impacts across those activities.",
     "relevant_chunks_256": [
+      "nist-ai-600-1-pdf_256_0027",
+      "nist-ai-600-1-pdf_256_0028",
       "nist-ai-600-1-pdf_256_0095"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0044"
+      "nist-ai-600-1-pdf_512_0013",
+      "nist-ai-600-1-pdf_512_0044",
+      "nist-ai-600-1-pdf_512_0045"
     ]
   },
   {
@@ -994,7 +1150,8 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "End users, practitioners, and operators.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0069"
+      "nist-ai-600-1-pdf_256_0069",
+      "nist-ai-600-1-pdf_256_0070"
     ],
     "relevant_chunks_512": [
       "nist-ai-600-1-pdf_512_0033"
@@ -1010,7 +1167,8 @@
       "nist-ai-600-1-pdf_256_0091"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0042"
+      "nist-ai-600-1-pdf_512_0042",
+      "nist-ai-600-1-pdf_512_0043"
     ]
   },
   {
@@ -1020,9 +1178,11 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "System performance, feedback received, and improvements made.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0112"
+      "nist-ai-600-1-pdf_256_0112",
+      "nist-ai-600-1-pdf_256_0113"
     ],
     "relevant_chunks_512": [
+      "nist-ai-600-1-pdf_512_0052",
       "nist-ai-600-1-pdf_512_0053"
     ]
   },
@@ -1033,9 +1193,11 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "Focus groups, small user studies, and surveys are examples; field testing is another approach.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0121"
+      "nist-ai-600-1-pdf_256_0121",
+      "nist-ai-600-1-pdf_256_0122"
     ],
     "relevant_chunks_512": [
+      "nist-ai-600-1-pdf_512_0056",
       "nist-ai-600-1-pdf_512_0057"
     ]
   },
@@ -1049,7 +1211,8 @@
       "nist-ai-100-1-pdf_256_0039"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0018"
+      "nist-ai-100-1-pdf_512_0018",
+      "nist-ai-100-1-pdf_512_0019"
     ]
   },
   {
@@ -1057,11 +1220,13 @@
     "query": "How do validity and reliability differ from accuracy?",
     "query_type": "comparison_reasoning",
     "document_id": "NIST.AI.100-1.pdf",
-    "expected_answer": "Validity and reliability concern whether requirements are met consistently under expected conditions, while accuracy is closeness to accepted true values.",
+    "expected_answer": "Validation confirms that requirements for a specific intended use or application are fulfilled; reliability is the ability to perform as required without failure for a given time under given conditions; accuracy is closeness to true or accepted values.",
     "relevant_chunks_256": [
+      "nist-ai-100-1-pdf_256_0032",
       "nist-ai-100-1-pdf_256_0033"
     ],
     "relevant_chunks_512": [
+      "nist-ai-100-1-pdf_512_0015",
       "nist-ai-100-1-pdf_512_0016"
     ]
   },
@@ -1070,11 +1235,13 @@
     "query": "How are accountability and transparency related but distinct?",
     "query_type": "comparison_reasoning",
     "document_id": "NIST.AI.100-1.pdf",
-    "expected_answer": "Transparency supplies appropriate information about a system, while accountability assigns responsibility for decisions, outcomes, and risk management.",
+    "expected_answer": "Transparency makes appropriate information about an AI system and its outputs available; accountability depends on that transparency and connects outcomes to actor roles and governing practices.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0037"
+      "nist-ai-100-1-pdf_256_0037",
+      "nist-ai-100-1-pdf_256_0038"
     ],
     "relevant_chunks_512": [
+      "nist-ai-100-1-pdf_512_0017",
       "nist-ai-100-1-pdf_512_0018"
     ]
   },
@@ -1083,12 +1250,16 @@
     "query": "Why are AI risks harder to test than many traditional software risks?",
     "query_type": "comparison_reasoning",
     "document_id": "NIST.AI.100-1.pdf",
-    "expected_answer": "AI behavior depends heavily on data and context, can drift, has emergent and probabilistic failure modes, and often lacks fully specified expected outputs.",
+    "expected_answer": "Compared with traditional software, AI can lack an available ground truth, depends on large and changing datasets, has complex and emergent failure modes, can drift, and is harder to test because AI development is not subject to the same controls as traditional code development.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0082"
+      "nist-ai-100-1-pdf_256_0080",
+      "nist-ai-100-1-pdf_256_0081",
+      "nist-ai-100-1-pdf_256_0082",
+      "nist-ai-100-1-pdf_256_0083"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0038"
+      "nist-ai-100-1-pdf_512_0038",
+      "nist-ai-100-1-pdf_512_0039"
     ]
   },
   {
@@ -1098,10 +1269,12 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "An operator runs or monitors the system, whereas an affected individual may experience its consequences without using or interacting with it.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0022"
+      "nist-ai-100-1-pdf_256_0076",
+      "nist-ai-100-1-pdf_256_0080"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0011"
+      "nist-ai-100-1-pdf_512_0035",
+      "nist-ai-100-1-pdf_512_0037"
     ]
   },
   {
@@ -1109,24 +1282,37 @@
     "query": "How do pre-deployment testing and post-deployment monitoring complement each other?",
     "query_type": "comparison_reasoning",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "Pre-deployment testing finds anticipated failures before release; monitoring detects real-world changes, incidents, feedback, and emergent risks after release.",
+    "expected_answer": "Pre-deployment TEVV measures performance, capabilities, limits, risks, and impacts before release; post-deployment monitoring captures user input, unexpected outputs, incidents, operational risk, and changes after release.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0110"
+      "nist-ai-600-1-pdf_256_0110",
+      "nist-ai-600-1-pdf_256_0111",
+      "nist-ai-600-1-pdf_256_0112",
+      "nist-ai-600-1-pdf_256_0119",
+      "nist-ai-600-1-pdf_256_0120"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0052"
+      "nist-ai-600-1-pdf_512_0051",
+      "nist-ai-600-1-pdf_512_0052",
+      "nist-ai-600-1-pdf_512_0053",
+      "nist-ai-600-1-pdf_512_0056",
+      "nist-ai-600-1-pdf_512_0057"
     ]
   },
   {
     "query_id": "q087",
-    "query": "How is confabulation different from deliberate misinformation?",
+    "query": "How does confabulation differ from misinformation and disinformation?",
     "query_type": "comparison_reasoning",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "Confabulation is erroneous generated content that need not be intentionally deceptive; misinformation or disinformation concerns false content and, for disinformation, deliberate intent to deceive.",
+    "expected_answer": "Confabulation is a GAI system confidently presenting erroneous or false content. Misinformation is false or misleading content produced or spread without deliberate intent, while disinformation is produced or spread with an explicit intent to deceive or cause harm.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0033"
+      "nist-ai-600-1-pdf_256_0021",
+      "nist-ai-600-1-pdf_256_0022",
+      "nist-ai-600-1-pdf_256_0033",
+      "nist-ai-600-1-pdf_256_0034"
     ],
     "relevant_chunks_512": [
+      "nist-ai-600-1-pdf_512_0010",
+      "nist-ai-600-1-pdf_512_0011",
       "nist-ai-600-1-pdf_512_0016"
     ]
   },
@@ -1137,10 +1323,13 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "Watermarking embeds or associates a detectable signal, while provenance records document origin and modification history across the content lifecycle.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0127"
+      "nist-ai-600-1-pdf_256_0126",
+      "nist-ai-600-1-pdf_256_0127",
+      "nist-ai-600-1-pdf_256_0128"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0059"
+      "nist-ai-600-1-pdf_512_0059",
+      "nist-ai-600-1-pdf_512_0060"
     ]
   },
   {
@@ -1148,24 +1337,28 @@
     "query": "Why should a fine-tuned model be compared with its baseline?",
     "query_type": "comparison_reasoning",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "Comparison isolates changes caused by fine-tuning or added data and helps diagnose whether adaptations introduced new failures or risks.",
+    "expected_answer": "Access to an untuned baseline supports debugging the relative influence of pretrained weights versus fine-tuned weights, added data, parameter changes, and other system updates.",
     "relevant_chunks_256": [
       "nist-ai-600-1-pdf_256_0108"
     ],
     "relevant_chunks_512": [
+      "nist-ai-600-1-pdf_512_0050",
       "nist-ai-600-1-pdf_512_0051"
     ]
   },
   {
     "query_id": "q090",
-    "query": "How do laboratory user studies and field testing provide different evidence?",
+    "query": "How do participatory engagement methods and field testing provide different evidence?",
     "query_type": "comparison_reasoning",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "Controlled studies isolate specific interactions, while field testing reveals behavior and impacts in realistic contexts of use.",
+    "expected_answer": "Participatory methods such as focus groups, small user studies, and surveys gather stakeholder feedback and are often less structured and used earlier; field testing uses structured settings that simulate deployment to estimate risks and impacts in real-world interactions.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0121"
+      "nist-ai-600-1-pdf_256_0121",
+      "nist-ai-600-1-pdf_256_0122",
+      "nist-ai-600-1-pdf_256_0123"
     ],
     "relevant_chunks_512": [
+      "nist-ai-600-1-pdf_512_0056",
       "nist-ai-600-1-pdf_512_0057"
     ]
   },
@@ -1176,11 +1369,16 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "MAP establishes context and identifies risks, while MEASURE analyzes, evaluates, and monitors those risks.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0057",
+      "nist-ai-100-1-pdf_256_0054",
+      "nist-ai-100-1-pdf_256_0055",
+      "nist-ai-100-1-pdf_256_0056",
+      "nist-ai-100-1-pdf_256_0060",
       "nist-ai-100-1-pdf_256_0061"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0027",
+      "nist-ai-100-1-pdf_512_0025",
+      "nist-ai-100-1-pdf_512_0026",
+      "nist-ai-100-1-pdf_512_0028",
       "nist-ai-100-1-pdf_512_0029"
     ]
   },
@@ -1191,11 +1389,16 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "GOVERN establishes culture, policies, roles, and oversight; MANAGE prioritizes and treats identified risks using those organizational structures.",
     "relevant_chunks_256": [
+      "nist-ai-100-1-pdf_256_0048",
+      "nist-ai-100-1-pdf_256_0049",
       "nist-ai-100-1-pdf_256_0050",
+      "nist-ai-100-1-pdf_256_0068",
       "nist-ai-100-1-pdf_256_0069"
     ],
     "relevant_chunks_512": [
+      "nist-ai-100-1-pdf_512_0022",
       "nist-ai-100-1-pdf_512_0023",
+      "nist-ai-100-1-pdf_512_0024",
       "nist-ai-100-1-pdf_512_0032"
     ]
   },
@@ -1204,15 +1407,19 @@
     "query": "How do MAP, MEASURE, and MANAGE form a continuous risk-management loop?",
     "query_type": "multi_chunk",
     "document_id": "NIST.AI.100-1.pdf",
-    "expected_answer": "MAP frames context and risks, MEASURE assesses them, and MANAGE prioritizes and responds; monitoring results then inform continued mapping and measurement.",
+    "expected_answer": "MAP frames the context and risks, MEASURE analyzes and monitors them, and MANAGE prioritizes and responds to them; the functions are iterative and cross-referenced throughout the AI lifecycle.",
     "relevant_chunks_256": [
-      "nist-ai-100-1-pdf_256_0057",
+      "nist-ai-100-1-pdf_256_0046",
+      "nist-ai-100-1-pdf_256_0048",
+      "nist-ai-100-1-pdf_256_0054",
       "nist-ai-100-1-pdf_256_0061",
       "nist-ai-100-1-pdf_256_0068"
     ],
     "relevant_chunks_512": [
-      "nist-ai-100-1-pdf_512_0027",
+      "nist-ai-100-1-pdf_512_0022",
+      "nist-ai-100-1-pdf_512_0025",
       "nist-ai-100-1-pdf_512_0029",
+      "nist-ai-100-1-pdf_512_0030",
       "nist-ai-100-1-pdf_512_0032"
     ]
   },
@@ -1223,28 +1430,30 @@
     "document_id": "NIST.AI.100-1.pdf",
     "expected_answer": "Privacy controls protect personal data, while fairness work identifies and manages harmful bias; both must be balanced with other trustworthiness characteristics in context.",
     "relevant_chunks_256": [
+      "nist-ai-100-1-pdf_256_0029",
+      "nist-ai-100-1-pdf_256_0030",
       "nist-ai-100-1-pdf_256_0041",
       "nist-ai-100-1-pdf_256_0042"
     ],
     "relevant_chunks_512": [
+      "nist-ai-100-1-pdf_512_0014",
       "nist-ai-100-1-pdf_512_0019",
       "nist-ai-100-1-pdf_512_0020"
     ]
   },
   {
     "query_id": "q095",
-    "query": "Compare the responsibilities of AI designers, operators, and TEVV actors.",
+    "query": "Compare the responsibilities of AI design actors, operation and monitoring actors, and TEVV actors.",
     "query_type": "multi_chunk",
     "document_id": "NIST.AI.100-1.pdf",
-    "expected_answer": "Designers define concepts and build systems, operators run and monitor them, and TEVV actors test, evaluate, verify, and validate throughout the lifecycle.",
+    "expected_answer": "AI design actors define concepts and objectives and perform planning, design, and data tasks; operation and monitoring actors operate systems and regularly assess outputs and impacts; TEVV actors examine systems or components and detect and remediate problems throughout the lifecycle.",
     "relevant_chunks_256": [
       "nist-ai-100-1-pdf_256_0074",
-      "nist-ai-100-1-pdf_256_0076",
-      "nist-ai-100-1-pdf_256_0025"
+      "nist-ai-100-1-pdf_256_0076"
     ],
     "relevant_chunks_512": [
+      "nist-ai-100-1-pdf_512_0034",
       "nist-ai-100-1-pdf_512_0035",
-      "nist-ai-100-1-pdf_512_0016",
       "nist-ai-100-1-pdf_512_0036"
     ]
   },
@@ -1255,25 +1464,33 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "Provenance controls expose origin and modification history, while human reviewers verify claims, sources, and citations before relying on outputs.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0126",
-      "nist-ai-600-1-pdf_256_0082"
+      "nist-ai-600-1-pdf_256_0076",
+      "nist-ai-600-1-pdf_256_0082",
+      "nist-ai-600-1-pdf_256_0101",
+      "nist-ai-600-1-pdf_256_0102",
+      "nist-ai-600-1-pdf_256_0126"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0059",
-      "nist-ai-600-1-pdf_512_0039"
+      "nist-ai-600-1-pdf_512_0035",
+      "nist-ai-600-1-pdf_512_0036",
+      "nist-ai-600-1-pdf_512_0039",
+      "nist-ai-600-1-pdf_512_0047",
+      "nist-ai-600-1-pdf_512_0059"
     ]
   },
   {
     "query_id": "q097",
-    "query": "How should organizations assess and manage the environmental impact of GAI?",
+    "query": "How should organizations assess and document the environmental impact of GAI?",
     "query_type": "multi_chunk",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "They should measure energy and water use across training, fine-tuning, inference, and deployment, then use those results in governance and risk-management decisions.",
+    "expected_answer": "Organizations should assess and document environmental impact and sustainability, account for impacts in product design, measure or estimate energy and water use for training, fine-tuning, and deployment, and distinguish inference-time resources from training resources.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0095",
-      "nist-ai-600-1-pdf_256_0026"
+      "nist-ai-600-1-pdf_256_0027",
+      "nist-ai-600-1-pdf_256_0028",
+      "nist-ai-600-1-pdf_256_0095"
     ],
     "relevant_chunks_512": [
+      "nist-ai-600-1-pdf_512_0013",
       "nist-ai-600-1-pdf_512_0044",
       "nist-ai-600-1-pdf_512_0045"
     ]
@@ -1285,14 +1502,17 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "Red-teaming probes adversarial failures, field testing studies real human use, and ongoing monitoring detects operational changes, feedback, and incidents after deployment.",
     "relevant_chunks_256": [
-      "nist-ai-600-1-pdf_256_0123",
+      "nist-ai-600-1-pdf_256_0109",
+      "nist-ai-600-1-pdf_256_0110",
+      "nist-ai-600-1-pdf_256_0111",
       "nist-ai-600-1-pdf_256_0121",
-      "nist-ai-600-1-pdf_256_0112"
+      "nist-ai-600-1-pdf_256_0123"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0058",
+      "nist-ai-600-1-pdf_512_0051",
+      "nist-ai-600-1-pdf_512_0052",
       "nist-ai-600-1-pdf_512_0057",
-      "nist-ai-600-1-pdf_512_0052"
+      "nist-ai-600-1-pdf_512_0058"
     ]
   },
   {
@@ -1300,16 +1520,20 @@
     "query": "How can third-party model governance address changes introduced by fine-tuning?",
     "query_type": "multi_chunk",
     "document_id": "NIST.AI.600-1.pdf",
-    "expected_answer": "Organizations should document suppliers and components, retain or compare baselines, reassess adapted models, and apply their own risk tolerance after fine-tuning.",
+    "expected_answer": "Organizations should re-evaluate fine-tuned or enhanced third-party models and new-domain uses, apply their own risk tolerances, reassess measurements after fine-tuning, document adaptations, and retain an untuned baseline for debugging.",
     "relevant_chunks_256": [
+      "nist-ai-600-1-pdf_256_0071",
       "nist-ai-600-1-pdf_256_0072",
-      "nist-ai-600-1-pdf_256_0108",
-      "nist-ai-600-1-pdf_256_0106"
+      "nist-ai-600-1-pdf_256_0106",
+      "nist-ai-600-1-pdf_256_0107",
+      "nist-ai-600-1-pdf_256_0108"
     ],
     "relevant_chunks_512": [
-      "nist-ai-600-1-pdf_512_0028",
-      "nist-ai-600-1-pdf_512_0051",
-      "nist-ai-600-1-pdf_512_0049"
+      "nist-ai-600-1-pdf_512_0033",
+      "nist-ai-600-1-pdf_512_0034",
+      "nist-ai-600-1-pdf_512_0049",
+      "nist-ai-600-1-pdf_512_0050",
+      "nist-ai-600-1-pdf_512_0051"
     ]
   },
   {
@@ -1319,11 +1543,17 @@
     "document_id": "NIST.AI.600-1.pdf",
     "expected_answer": "Confabulated outputs introduce plausible falsehoods, and at scale those outputs can pollute the information ecosystem; verification and provenance help limit both risks.",
     "relevant_chunks_256": [
+      "nist-ai-600-1-pdf_256_0021",
       "nist-ai-600-1-pdf_256_0022",
-      "nist-ai-600-1-pdf_256_0087"
+      "nist-ai-600-1-pdf_256_0033",
+      "nist-ai-600-1-pdf_256_0076",
+      "nist-ai-600-1-pdf_256_0082"
     ],
     "relevant_chunks_512": [
+      "nist-ai-600-1-pdf_512_0010",
       "nist-ai-600-1-pdf_512_0011",
+      "nist-ai-600-1-pdf_512_0016",
+      "nist-ai-600-1-pdf_512_0039",
       "nist-ai-600-1-pdf_512_0059"
     ]
   }
