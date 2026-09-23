@@ -5,7 +5,8 @@ from ollama import Client
 
 
 DEFAULT_OLLAMA_HOST = "http://localhost:11434"
-DEFAULT_MODEL = "granite4.1:8b-q4_K_M"
+#DEFAULT_MODEL = "granite4.1:8b-q4_K_M"
+DEFAULT_MODEL = "granite4.1:3b"
 
 def nanoseconds_to_seconds(
     value: int | None,
@@ -22,12 +23,12 @@ class OllamaGenerator:
         host: str | None = None,
         temperature: float = 0.0,
         max_output_tokens: int = 512,
-        context_length: int = 8192,
+        context_length: int = 4096,
     ) -> None:
         self.model = (
-            model
-            or os.getenv("OLLAMA_MODEL")
-            or DEFAULT_MODEL
+            #model
+            #or os.getenv("OLLAMA_MODEL")
+             DEFAULT_MODEL
         )
 
         self.host = (
@@ -55,6 +56,7 @@ class OllamaGenerator:
             model=self.model,
             messages=messages,
             stream=False,
+            keep_alive="30m",
             options={
                 "temperature": self.temperature,
                 "num_predict": self.max_output_tokens,

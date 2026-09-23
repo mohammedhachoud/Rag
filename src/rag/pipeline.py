@@ -35,11 +35,11 @@ class RAGPipeline:
             collection_name=self.collection_name,
             top_k=self.top_k,
         )
-
+        generation_chunks = chunks[:3]
         # 2. Construct the LLM messages
         messages = build_messages(
             question=question,
-            chunks=chunks,
+            chunks=generation_chunks,
         )
 
         # 3. Generate the answer
@@ -50,6 +50,8 @@ class RAGPipeline:
             "question": question,
             "answer": generation["answer"],
             "model": generation["model"],
+            "retrieval_top_k": len(chunks),
+            "generation_top_k": len(generation_chunks),
             "retrieved_chunks": chunks,
             "generation_stats": {
                 "prompt_tokens": generation[
