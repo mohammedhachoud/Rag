@@ -52,22 +52,44 @@ class RAGPipeline:
             "model": generation["model"],
             "retrieved_chunks": chunks,
             "generation_stats": {
-                "prompt_tokens": generation["prompt_tokens"],
-                "generated_tokens": generation["generated_tokens"],
-                "total_duration_ns": generation["total_duration_ns"],
-                "load_duration_ns": generation["load_duration_ns"],
-                "generation_duration_ns": (
-                    generation["generation_duration_ns"]
-                ),
+                "prompt_tokens": generation[
+                    "prompt_tokens"
+                ],
+                "generated_tokens": generation[
+                    "generated_tokens"
+                ],
+                "total_duration_seconds": generation[
+                    "total_duration_seconds"
+                ],
+                "load_duration_seconds": generation[
+                    "load_duration_seconds"
+                ],
+                "prompt_evaluation_seconds": generation[
+                    "prompt_evaluation_seconds"
+                ],
+                "generation_duration_seconds": generation[
+                    "generation_duration_seconds"
+                ],
+                "generation_tokens_per_second": generation[
+                    "generation_tokens_per_second"
+                ],
             },
         }
 
 
 if __name__ == "__main__":
     import json
-
+    import argparse
     from qdrant_client import QdrantClient
     from sentence_transformers import SentenceTransformer
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "question",
+        type=str,
+        help="Question to answer",
+    )
+    args = parser.parse_args()
 
     embedding_model = SentenceTransformer(
         "BAAI/bge-small-en-v1.5"
@@ -92,9 +114,8 @@ if __name__ == "__main__":
         top_k=5,
     )
 
-    result = pipeline.answer(
-        "What are the four AI RMF core functions?"
-    )
+    result = pipeline.answer(question=args.question)
+
 
     print(
         json.dumps(
