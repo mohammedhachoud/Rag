@@ -17,38 +17,113 @@ def create_document_slug(document_id: str) -> str:
     return slug.strip("-")
 
 
-def chunk_text(
-    text: str,
+def chunk_pages(
+    pages: list[dict],
     tokenizer,
     chunk_size: int,
     overlap: int,
 ) -> list[dict]:
-    token_ids = tokenizer.encode(
-        text,
-        add_special_tokens=False,
+    if chunk_size <= 0:
+        raise ValueError(
+            "The chunk size must be positive."
+        )
+
+    if overlap < 0:
+        raise ValueError(
+            "The overlap cannot be negative."
+        )
+
+    special_token_count = (
+        tokenizer.num_special_tokens_to_add(
+            pair=False
+        )
     )
 
-    special_token_count = tokenizer.num_special_tokens_to_add(
-        pair=False
+    content_limit = (
+        chunk_size - special_token_count
     )
 
-    content_limit = chunk_size - special_token_count
+    if content_limit <= 0:
+        raise ValueError(
+            "The chunk size must be larger than "
+            "the required special-token count."
+        )
 
     if overlap >= content_limit:
         raise ValueError(
-            "The overlap must be smaller than the chunk content limit."
+            "The overlap must be smaller than "
+            "the chunk content limit."
+        )
+    document_token_ids = []
+
+    token_page_numbers = []
+
+    separator_token_ids = tokenizer.encode(
+        "\n\n",
+        add_special_tokens=False,
+    )
+
+    for page_index, page in enumerate(pages):
+        page_number = page["page_number"]
+        page_text = page["text"].strip()
+
+        if not page_text:
+            continue
+
+        page_token_ids = tokenizer.encode(
+            page_text,
+            add_special_tokens=False,
+        )
+
+        if not page_token_ids:
+            continue
+
+        if document_token_ids:
+            document_token_ids.extend(
+                separator_token_ids
+            )
+
+            token_page_numbers.extend(
+                [None] * len(separator_token_ids)
+            )
+
+        document_token_ids.extend(
+            page_token_ids
+        )
+
+        token_page_numbers.extend(
+            [page_number] * len(page_token_ids)
         )
 
     step = content_limit - overlap
     chunks = []
 
-    for start_token in range(0, len(token_ids), step):
+    for start_token in range(
+        0,
+        len(document_token_ids),
+        step,
+    ):
         end_token = min(
             start_token + content_limit,
-            len(token_ids),
+            len(document_token_ids),
         )
 
-        chunk_token_ids = token_ids[start_token:end_token]
+        chunk_token_ids = document_token_ids[
+            start_token:end_token
+        ]
+
+        chunk_page_mapping = token_page_numbers[
+            start_token:end_token
+        ]
+
+        pages_in_chunk = [
+            page_number
+            for page_number in chunk_page_mapping
+            if page_number is not None
+        ]
+
+        if not pages_in_chunk:
+            continue
 
         chunk_text_value = tokenizer.decode(
             chunk_token_ids,
@@ -62,14 +137,23 @@ def chunk_text(
                     "text": chunk_text_value,
                     "start_token": start_token,
                     "end_token": end_token,
-                    "token_count": len(chunk_token_ids),
+                    "token_count": len(
+                        chunk_token_ids
+                    ),
+                    "page_start": (
+                        pages_in_chunk[0]
+                    ),
+                    "page_end": (
+                        pages_in_chunk[-1]
+                    ),
                 }
             )
 
-        if end_token == len(token_ids):
+        if end_token == len(document_token_ids):
             break
 
     return chunks
+
 
 
 def chunk_documents(
@@ -82,10 +166,20 @@ def chunk_documents(
 
     for document in documents:
         document_id = document["document_id"]
+        file_name = document["file_name"]
         document_slug = create_document_slug(document_id)
 
-        document_chunks = chunk_text(
-            text=document["text"],
+        pages = document.get("pages")
+
+        if not pages:
+            raise ValueError(
+                f"Document '{document_id}' does not "
+                "contain page-level text. Re-run the "
+                "PDF extraction with page preservation."
+            )
+
+        document_chunks = chunk_pages(
+            pages=pages,
             tokenizer=tokenizer,
             chunk_size=chunk_size,
             overlap=overlap,
@@ -105,18 +199,30 @@ def chunk_documents(
                 {
                     "chunk_id": chunk_id,
                     "document_id": document_id,
-                    "file_name": document["file_name"],
+                    "file_name": file_name,
                     "chunk_size": chunk_size,
                     "chunk_overlap": overlap,
                     "chunk_number": chunk_number,
-                    "start_token": chunk["start_token"],
-                    "end_token": chunk["end_token"],
-                    "token_count": chunk["token_count"],
+                    "start_token": (
+                        chunk["start_token"]
+                    ),
+                    "end_token": (
+                        chunk["end_token"]
+                    ),
+                    "token_count": (
+                        chunk["token_count"]
+                    ),
+                    "page_start": (
+                        chunk["page_start"]
+                    ),
+                    "page_end": (
+                        chunk["page_end"]
+                    ),
                     "text": chunk["text"],
                 }
             )
 
-    return all_chunks
+    return all_chunks            
 
 
 def save_chunks(

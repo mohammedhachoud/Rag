@@ -58,6 +58,8 @@ def search_dense(
                 "chunk_id": payload.get("chunk_id"),
                 "document_id": payload.get("document_id"),
                 "score": float(point.score),
+                "page_start": payload.get("page_start"),
+                "page_end": payload.get("page_end"),
                 "text": payload.get("text", ""),
             }
         )

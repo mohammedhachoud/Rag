@@ -5,7 +5,16 @@ from ollama import Client
 
 
 DEFAULT_OLLAMA_HOST = "http://localhost:11434"
-DEFAULT_MODEL = "granite4.1:8b-q4_K_M"
+#DEFAULT_MODEL = "granite4.1:8b-q4_K_M"
+DEFAULT_MODEL = "granite4.1:3b"
+
+def nanoseconds_to_seconds(
+    value: int | None,
+) -> float | None:
+    if value is None:
+        return None
+
+    return round(value / 1_000_000_000, 3)
 
 class OllamaGenerator:
     def __init__(
@@ -14,12 +23,12 @@ class OllamaGenerator:
         host: str | None = None,
         temperature: float = 0.0,
         max_output_tokens: int = 512,
-        context_length: int = 8192,
+        context_length: int = 4096,
     ) -> None:
         self.model = (
-            model
-            or os.getenv("OLLAMA_MODEL")
-            or DEFAULT_MODEL
+            #model
+            #or os.getenv("OLLAMA_MODEL")
+             DEFAULT_MODEL
         )
 
         self.host = (
@@ -47,6 +56,7 @@ class OllamaGenerator:
             model=self.model,
             messages=messages,
             stream=False,
+            keep_alive="30m",
             options={
                 "temperature": self.temperature,
                 "num_predict": self.max_output_tokens,
@@ -56,12 +66,46 @@ class OllamaGenerator:
 
         answer = response.message.content.strip()
 
+        generation_seconds = nanoseconds_to_seconds(
+            response.eval_duration
+        )
+
+        generated_tokens = response.eval_count or 0
+
+        tokens_per_second = None
+
+        if generation_seconds and generation_seconds > 0:
+            tokens_per_second = round(
+                generated_tokens / generation_seconds,
+                2,
+            )
+
         return {
             "answer": answer,
             "model": response.model,
-            "prompt_tokens": response.prompt_eval_count,
-            "generated_tokens": response.eval_count,
-            "total_duration_ns": response.total_duration,
-            "load_duration_ns": response.load_duration,
-            "generation_duration_ns": response.eval_duration,
+            "prompt_tokens": (
+                response.prompt_eval_count or 0
+            ),
+            "generated_tokens": generated_tokens,
+            "total_duration_seconds": (
+                nanoseconds_to_seconds(
+                    response.total_duration
+                )
+            ),
+            "load_duration_seconds": (
+                nanoseconds_to_seconds(
+                    response.load_duration
+                )
+            ),
+            "prompt_evaluation_seconds": (
+                nanoseconds_to_seconds(
+                    response.prompt_eval_duration
+                )
+            ),
+            "generation_duration_seconds": (
+                generation_seconds
+            ),
+            "generation_tokens_per_second": (
+                tokens_per_second
+            ),
         }
