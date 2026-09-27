@@ -183,6 +183,10 @@ IDs, timing details, and expected-answer word recall for auditing. Override loca
 Ollama tags with `--three-b-model` or `--eight-b-model` when needed.
 The benchmark runs one Granite model at a time and unloads it before loading the
 next, avoiding both models occupying system and GPU memory simultaneously.
+Answer correctness is reported as the percentage meeting a semantic-similarity
+threshold against the gold answer (default `0.75`, configurable with
+`--correctness-threshold`). CPU model-memory and VRAM allocations come from
+Ollama and are included per answer and in the summary.
 
 ## Ask a question with the RAG pipeline
 

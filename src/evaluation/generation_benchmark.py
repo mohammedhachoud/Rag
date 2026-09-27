@@ -25,6 +25,7 @@ from src.retrieval.dense import COLLECTIONS, MODEL_NAME, QDRANT_URL, search_dens
 REFUSAL = "I cannot answer this question from the provided sources."
 CITATION_PATTERN = re.compile(r"\[([^\[\]\r\n]+)\]")
 WORD_PATTERN = re.compile(r"[a-z0-9]+")
+DEFAULT_CORRECTNESS_THRESHOLD = 0.75
 
 
 @dataclass(frozen=True)
@@ -54,6 +55,21 @@ def content_word_recall(answer: str, expected_answer: str) -> float:
     if not expected_words:
         return 0.0
     return len(expected_words & answer_words) / len(expected_words)
+
+
+def semantic_answer_similarity(
+    answer: str,
+    expected_answer: str,
+    model: SentenceTransformer,
+) -> float:
+    """Cosine similarity between the generated and gold answers."""
+    answer_without_citations = CITATION_PATTERN.sub("", answer).strip()
+    embeddings = model.encode(
+        [answer_without_citations, expected_answer],
+        normalize_embeddings=True,
+        convert_to_numpy=True,
+    )
+    return float(np.dot(embeddings[0], embeddings[1]))
 
 
 def score_answer(
@@ -107,6 +123,14 @@ def percentile(values: list[float], quantile: int) -> float:
 
 def summarize(records: list[dict[str, Any]]) -> dict[str, Any]:
     latencies = [record["response_time_seconds"] for record in records]
+    cpu_memory = [
+        record["resource_usage"]["cpu_memory_mb"] for record in records
+        if record["resource_usage"]["cpu_memory_mb"] is not None
+    ]
+    vram = [
+        record["resource_usage"]["vram_mb"] for record in records
+        if record["resource_usage"]["vram_mb"] is not None
+    ]
     return {
         "questions": len(records),
         "context_chunks": records[0]["context_chunks"] if records else 0,
@@ -120,26 +144,38 @@ def summarize(records: list[dict[str, Any]]) -> dict[str, Any]:
         "expected_answer_word_recall": mean(
             record["scores"]["expected_answer_word_recall"] for record in records
         ),
+        "answer_correctness_rate": mean(
+            record["scores"]["answer_correct"] for record in records
+        ),
+        "mean_answer_similarity": mean(
+            record["scores"]["answer_similarity"] for record in records
+        ),
         "mean_response_time_seconds": mean(latencies),
         "median_response_time_seconds": median(latencies),
         "p95_response_time_seconds": percentile(latencies, 95),
+        "mean_cpu_memory_mb": mean(cpu_memory) if cpu_memory else None,
+        "peak_cpu_memory_mb": max(cpu_memory) if cpu_memory else None,
+        "mean_vram_mb": mean(vram) if vram else None,
+        "peak_vram_mb": max(vram) if vram else None,
     }
 
 
 def print_summary(summary: dict[str, dict[str, Any]]) -> None:
     print("\nGeneration benchmark summary\n")
     print(
-        f"{'Generator':<34}{'Context':>9}{'Grounded':>11}"
-        f"{'Citations':>11}{'Mean sec':>11}{'p95 sec':>10}"
+        f"{'Generator':<34}{'Context':>9}{'Correct':>10}{'Grounded':>11}"
+        f"{'Citations':>11}{'Mean sec':>11}{'CPU MB':>10}{'VRAM MB':>10}"
     )
-    print("-" * 86)
+    print("-" * 106)
     for name, values in summary.items():
         print(
             f"{name:<34}{values['context_chunks']:>9}"
+            f"{values['answer_correctness_rate']:>10.1%}"
             f"{values['grounded_answer_rate']:>11.1%}"
             f"{values['correct_citation_rate']:>11.1%}"
             f"{values['mean_response_time_seconds']:>11.2f}"
-            f"{values['p95_response_time_seconds']:>10.2f}"
+            f"{(values['peak_cpu_memory_mb'] or 0):>10.0f}"
+            f"{(values['peak_vram_mb'] or 0):>10.0f}"
         )
 
 
@@ -150,11 +186,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--three-b-model", default="granite4.1:3b")
     parser.add_argument("--eight-b-model", default="granite4.1:8b-q4_K_M")
     parser.add_argument("--output", type=Path)
+    parser.add_argument(
+        "--correctness-threshold", type=float, default=DEFAULT_CORRECTNESS_THRESHOLD,
+        help="Minimum semantic similarity counted as correct (default: 0.75).",
+    )
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
+    if not 0.0 <= args.correctness_threshold <= 1.0:
+        raise ValueError("--correctness-threshold must be between 0 and 1.")
     project_root = Path(__file__).resolve().parents[2]
     evaluation_path = project_root / "data" / "evaluation" / "synthetic_eval.json"
     output_path = args.output or project_root / "results" / "generation_benchmark_results.json"
@@ -223,6 +265,14 @@ def main() -> None:
                     relevant_chunk_ids=item[f"relevant_chunks_{args.chunk_size}"],
                     expected_answer=item["expected_answer"],
                 )
+                answer_similarity = semantic_answer_similarity(
+                    generation["answer"], item["expected_answer"], embedding_model
+                )
+                scores["answer_similarity"] = answer_similarity
+                scores["answer_correct"] = (
+                    answer_similarity >= args.correctness_threshold
+                )
+                resource_usage = generator.resource_usage()
                 records_by_configuration[configuration.name].append({
                     "query_id": item["query_id"],
                     "question": item["query"],
@@ -232,6 +282,7 @@ def main() -> None:
                     "context_chunk_ids": [chunk["chunk_id"] for chunk in context],
                     "answer": generation["answer"],
                     "response_time_seconds": elapsed,
+                    "resource_usage": resource_usage,
                     "generation_stats": {key: value for key, value in generation.items()
                                          if key not in {"answer", "model"}},
                     "scores": scores,
@@ -247,6 +298,7 @@ def main() -> None:
             "chunk_size": args.chunk_size,
             "retriever": "dense",
             "embedding_model": MODEL_NAME,
+            "answer_correctness_threshold": args.correctness_threshold,
             "systems": [asdict(configuration) for configuration in configurations],
             "scoring_note": (
                 "Grounded means all cited sources were supplied and at least one citation "
