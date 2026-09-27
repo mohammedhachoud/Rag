@@ -7,6 +7,7 @@ from qdrant_client import QdrantClient
 from sentence_transformers import SentenceTransformer
 
 from src.evaluation.metrics import calculate_query_metrics
+from src.config import settings
 from src.retrieval.bm25 import (
     build_bm25_index,
     load_chunks,
@@ -20,8 +21,8 @@ from src.retrieval.dense import (
 )
 
 
-TOP_K = 5
-CHUNK_SIZES = (256, 512)
+TOP_K = settings.retrieval_top_k
+CHUNK_SIZES = settings.chunk_sizes
 
 
 def load_evaluation_queries(
@@ -310,9 +311,7 @@ def main() -> None:
         MODEL_NAME
     )
 
-    qdrant_client = QdrantClient(
-        url=QDRANT_URL
-    )
+    qdrant_client = QdrantClient(**settings.qdrant_kwargs())
 
     for chunk_size in CHUNK_SIZES:
         collection_name = COLLECTIONS[chunk_size]

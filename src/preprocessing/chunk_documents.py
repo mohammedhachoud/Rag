@@ -4,11 +4,12 @@ from pathlib import Path
 
 # pyrefly: ignore [missing-import]
 from transformers import AutoTokenizer
+from src.config import settings
 
 
-MODEL_NAME = "BAAI/bge-small-en-v1.5"
-CHUNK_SIZES = [256, 512]
-CHUNK_OVERLAP = 32
+MODEL_NAME = settings.embedding_model
+CHUNK_SIZES = settings.chunk_sizes
+CHUNK_OVERLAP = settings.chunk_overlap
 
 
 def create_document_slug(document_id: str) -> str:

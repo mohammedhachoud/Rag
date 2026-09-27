@@ -1,18 +1,16 @@
 from qdrant_client import QdrantClient
 from sentence_transformers import SentenceTransformer
+from src.config import settings
 
 
-MODEL_NAME = "BAAI/bge-small-en-v1.5"
-QDRANT_URL = "http://localhost:6333"
+MODEL_NAME = settings.embedding_model
+QDRANT_URL = settings.qdrant_url
 
 QUERY_INSTRUCTION = (
     "Represent this sentence for searching relevant passages: "
 )
 
-COLLECTIONS = {
-    256: "rag_dense_256",
-    512: "rag_dense_512",
-}
+COLLECTIONS = settings.collections
 
 def encode_query(
     query: str,
@@ -69,7 +67,7 @@ def search_dense(
 
 def main() -> None:
     model = SentenceTransformer(MODEL_NAME)
-    client = QdrantClient(url=QDRANT_URL)
+    client = QdrantClient(**settings.qdrant_kwargs())
 
     chunk_size = 256
     collection_name = COLLECTIONS[chunk_size]
@@ -87,7 +85,7 @@ def main() -> None:
         model=model,
         client=client,
         collection_name=collection_name,
-        top_k=5,
+        top_k=settings.retrieval_top_k,
     )
 
     print(f"Query: {query}")

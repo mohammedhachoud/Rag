@@ -1,12 +1,11 @@
-import os
 from typing import Any
 
 from ollama import Client
+from src.config import settings
 
 
-DEFAULT_OLLAMA_HOST = "http://localhost:11434"
-#DEFAULT_MODEL = "granite4.1:8b-q4_K_M"
-DEFAULT_MODEL = "granite4.1:3b"
+DEFAULT_OLLAMA_HOST = settings.ollama_host
+DEFAULT_MODEL = settings.ollama_model
 
 def nanoseconds_to_seconds(
     value: int | None,
@@ -21,25 +20,23 @@ class OllamaGenerator:
         self,
         model: str | None = None,
         host: str | None = None,
-        temperature: float = 0.0,
-        max_output_tokens: int = 512,
-        context_length: int = 4096,
+        temperature: float | None = None,
+        max_output_tokens: int | None = None,
+        context_length: int | None = None,
     ) -> None:
         self.model = (
             model
-            or os.getenv("OLLAMA_MODEL")
             or DEFAULT_MODEL
         )
 
         self.host = (
             host
-            or os.getenv("OLLAMA_HOST")
             or DEFAULT_OLLAMA_HOST
         )
 
-        self.temperature = temperature
-        self.max_output_tokens = max_output_tokens
-        self.context_length = context_length
+        self.temperature = settings.ollama_temperature if temperature is None else temperature
+        self.max_output_tokens = settings.ollama_max_output_tokens if max_output_tokens is None else max_output_tokens
+        self.context_length = settings.ollama_context_length if context_length is None else context_length
 
         self.client = Client(host=self.host)
 
@@ -56,7 +53,7 @@ class OllamaGenerator:
             model=self.model,
             messages=messages,
             stream=False,
-            keep_alive="30m",
+            keep_alive=settings.ollama_keep_alive,
             options={
                 "temperature": self.temperature,
                 "num_predict": self.max_output_tokens,

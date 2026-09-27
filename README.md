@@ -61,6 +61,19 @@ python -m venv .venv
 python -m pip install -r requirements.txt
 ```
 
+Copy the environment template for local configuration (a populated `.env` is
+already included in this checkout and is ignored by Git):
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Start Qdrant with Docker Compose if it is not already running:
+
+```powershell
+docker compose up -d qdrant
+```
+
 ## Prepare the data
 
 The repository already contains processed corpora and evaluation data. To rebuild them from source PDFs, run the following steps.
@@ -210,18 +223,22 @@ The generator currently writes `data/synthetic_queries.txt`. Review generated re
 
 ## Configuration
 
-Important defaults are defined directly in the source:
+Configuration is centralized in `.env` and loaded by `src/config.py`. Process
+environment variables take precedence over values in `.env`; command-line
+arguments continue to take precedence where available. Use `.env.example` as
+the committed reference and never commit secrets from `.env`.
 
 | Setting | Default | Location |
 |---|---|---|
-| Embedding model | `BAAI/bge-small-en-v1.5` | preprocessing, ingestion, and dense retrieval modules |
-| Qdrant URL | `http://localhost:6333` | `src/retrieval/dense.py` |
-| Dense collections | `rag_dense_256`, `rag_dense_512` | ingestion and dense retrieval modules |
-| Benchmark `top_k` | `5` | `src/evaluation/benchmark.py` |
-| Ollama host | `http://localhost:11434` | `src/generation/ollama_client.py` |
-| Ollama model | `granite4.1:3b` | `src/generation/ollama_client.py` |
+| Embedding model | `BAAI/bge-small-en-v1.5` | `EMBEDDING_MODEL` |
+| Qdrant URL/API key | `http://localhost:6333` / empty | `QDRANT_URL`, `QDRANT_API_KEY` |
+| Dense collections | `rag_dense_256`, `rag_dense_512` | `QDRANT_COLLECTION_256`, `QDRANT_COLLECTION_512` |
+| Retrieval context | `5` retrieved / `3` generated | `RETRIEVAL_TOP_K`, `GENERATION_TOP_K` |
+| Ollama | `http://localhost:11434`, `granite4.1:3b` | `OLLAMA_HOST`, `OLLAMA_MODEL` |
+| Qdrant Docker ports | `6333`, `6334` | `QDRANT_HTTP_PORT`, `QDRANT_GRPC_PORT` |
 
-`OLLAMA_HOST` can be used to override the default Ollama endpoint.
+See `.env.example` for chunking, batching, generation, evaluation, and Docker
+storage settings.
 
 ## Notes
 

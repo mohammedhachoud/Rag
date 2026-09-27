@@ -17,6 +17,7 @@ from src.evaluation.benchmark import (
     load_evaluation_queries,
     validate_evaluation_queries,
 )
+from src.config import settings
 from src.generation.ollama_client import OllamaGenerator
 from src.generation.prompt_builder import build_citation, build_messages
 from src.retrieval.dense import COLLECTIONS, MODEL_NAME, QDRANT_URL, search_dense
@@ -25,7 +26,7 @@ from src.retrieval.dense import COLLECTIONS, MODEL_NAME, QDRANT_URL, search_dens
 REFUSAL = "I cannot answer this question from the provided sources."
 CITATION_PATTERN = re.compile(r"\[([^\[\]\r\n]+)\]")
 WORD_PATTERN = re.compile(r"[a-z0-9]+")
-DEFAULT_CORRECTNESS_THRESHOLD = 0.75
+DEFAULT_CORRECTNESS_THRESHOLD = settings.correctness_threshold
 
 
 @dataclass(frozen=True)
@@ -36,10 +37,10 @@ class GenerationConfiguration:
 
 
 DEFAULT_CONFIGURATIONS = (
-    GenerationConfiguration("Granite 3B - Top 3 chunks", "granite4.1:3b", 3),
-    GenerationConfiguration("Granite 3B - Top 5 chunks", "granite4.1:3b", 5),
-    GenerationConfiguration("Granite 8B - Top 3 chunks", "granite4.1:8b-q4_K_M", 3),
-    GenerationConfiguration("Granite 8B - Top 5 chunks", "granite4.1:8b-q4_K_M", 5),
+    GenerationConfiguration("Granite 3B - Top 3 chunks", settings.ollama_model, 3),
+    GenerationConfiguration("Granite 3B - Top 5 chunks", settings.ollama_model, 5),
+    GenerationConfiguration("Granite 8B - Top 3 chunks", settings.ollama_model_8b, 3),
+    GenerationConfiguration("Granite 8B - Top 5 chunks", settings.ollama_model_8b, 5),
 )
 
 
@@ -183,8 +184,8 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--limit", type=int, help="Run only the first N questions.")
     parser.add_argument("--chunk-size", type=int, choices=(256, 512), default=512)
-    parser.add_argument("--three-b-model", default="granite4.1:3b")
-    parser.add_argument("--eight-b-model", default="granite4.1:8b-q4_K_M")
+    parser.add_argument("--three-b-model", default=settings.ollama_model)
+    parser.add_argument("--eight-b-model", default=settings.ollama_model_8b)
     parser.add_argument("--output", type=Path)
     parser.add_argument(
         "--correctness-threshold", type=float, default=DEFAULT_CORRECTNESS_THRESHOLD,
@@ -215,7 +216,7 @@ def main() -> None:
         GenerationConfiguration("Granite 8B - Top 5 chunks", args.eight_b_model, 5),
     )
 
-    qdrant_client = QdrantClient(url=QDRANT_URL)
+    qdrant_client = QdrantClient(**settings.qdrant_kwargs())
     collection = COLLECTIONS[args.chunk_size]
     try:
         collection_exists = qdrant_client.collection_exists(collection)
@@ -243,7 +244,7 @@ def main() -> None:
 
     models = dict.fromkeys(configuration.model for configuration in configurations)
     for model in models:
-        generator = OllamaGenerator(model=model, temperature=0.0, context_length=8192)
+        generator = OllamaGenerator(model=model)
         model_configurations = [
             configuration for configuration in configurations
             if configuration.model == model

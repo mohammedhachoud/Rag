@@ -6,19 +6,12 @@ from sentence_transformers import SentenceTransformer
 import uuid
 
 from qdrant_client import QdrantClient, models
+from src.config import settings
 
-MODEL_NAME = "BAAI/bge-small-en-v1.5"
-
-QDRANT_URL = "http://localhost:6333"
-
-COLLECTIONS = {
-    256: "rag_dense_256",
-    512: "rag_dense_512",
-}
-
-UPSERT_BATCH_SIZE = 100
-
-client = QdrantClient(url=QDRANT_URL)
+MODEL_NAME = settings.embedding_model
+QDRANT_URL = settings.qdrant_url
+COLLECTIONS = settings.collections
+UPSERT_BATCH_SIZE = settings.qdrant_upsert_batch_size
 
 def load_chunks(chunks_path: Path) -> list[dict]:
     with chunks_path.open("r", encoding="utf-8") as chunks_file:
@@ -157,7 +150,7 @@ def main() -> None:
             "Could not determine the embedding dimension."
         )
 
-    client = QdrantClient(url=QDRANT_URL)
+    client = QdrantClient(**settings.qdrant_kwargs())
 
     for chunk_size, collection_name in COLLECTIONS.items():
         chunks_path = (
@@ -177,7 +170,7 @@ def main() -> None:
         embeddings = generate_embeddings(
             chunks=chunks,
             model=model,
-            batch_size=32,
+            batch_size=settings.embedding_batch_size,
         )
 
         print(f"Generated embeddings: {embeddings.shape}")

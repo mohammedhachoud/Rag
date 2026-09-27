@@ -3,6 +3,7 @@ from typing import Any
 from src.generation.ollama_client import OllamaGenerator
 from src.generation.prompt_builder import build_messages
 from src.retrieval.dense import search_dense
+from src.config import settings
 
 from qdrant_client import QdrantClient
 from sentence_transformers import SentenceTransformer
@@ -15,13 +16,13 @@ class RAGPipeline:
         qdrant_client: QdrantClient,
         collection_name: str,
         generator: OllamaGenerator | None = None,
-        top_k: int = 5,
+        top_k: int | None = None,
     ) -> None:
         self.embedding_model = embedding_model
         self.qdrant_client = qdrant_client
         self.collection_name = collection_name
         self.generator = generator or OllamaGenerator()
-        self.top_k = top_k
+        self.top_k = settings.retrieval_top_k if top_k is None else top_k
 
     def answer(
         self,
@@ -35,7 +36,7 @@ class RAGPipeline:
             collection_name=self.collection_name,
             top_k=self.top_k,
         )
-        generation_chunks = chunks[:3]
+        generation_chunks = chunks[:settings.generation_top_k]
         # 2. Construct the LLM messages
         messages = build_messages(
             question=question,
@@ -93,27 +94,20 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    embedding_model = SentenceTransformer(
-        "BAAI/bge-small-en-v1.5"
-    )
+    embedding_model = SentenceTransformer(settings.embedding_model)
 
-    qdrant_client = QdrantClient(
-        url="http://localhost:6333"
-    )
+    qdrant_client = QdrantClient(**settings.qdrant_kwargs())
 
     generator = OllamaGenerator(
-        model="granite4.1:8b-q4_K_M",
-        temperature=0.0,
-        max_output_tokens=512,
-        context_length=8192,
+        model=settings.ollama_model,
     )
 
     pipeline = RAGPipeline(
         embedding_model=embedding_model,
         qdrant_client=qdrant_client,
-        collection_name="rag_dense_512",
+        collection_name=settings.collections[512],
         generator=generator,
-        top_k=5,
+        top_k=settings.retrieval_top_k,
     )
 
     result = pipeline.answer(question=args.question)
