@@ -26,9 +26,9 @@ class OllamaGenerator:
         context_length: int = 4096,
     ) -> None:
         self.model = (
-            #model
-            #or os.getenv("OLLAMA_MODEL")
-             DEFAULT_MODEL
+            model
+            or os.getenv("OLLAMA_MODEL")
+            or DEFAULT_MODEL
         )
 
         self.host = (
@@ -108,4 +108,30 @@ class OllamaGenerator:
             "generation_tokens_per_second": (
                 tokens_per_second
             ),
+        }
+
+    def unload(self) -> None:
+        """Release this model from Ollama's CPU/GPU memory."""
+        self.client.generate(
+            model=self.model,
+            prompt="",
+            keep_alive=0,
+        )
+
+    def resource_usage(self) -> dict[str, float | None]:
+        """Return Ollama's current allocation for this model in MiB."""
+        for process in self.client.ps().models:
+            if process.model == self.model or process.name == self.model:
+                total_bytes = int(process.size or 0)
+                vram_bytes = int(process.size_vram or 0)
+                mib = 1024 * 1024
+                return {
+                    "total_memory_mb": round(total_bytes / mib, 2),
+                    "vram_mb": round(vram_bytes / mib, 2),
+                    "cpu_memory_mb": round(max(total_bytes - vram_bytes, 0) / mib, 2),
+                }
+        return {
+            "total_memory_mb": None,
+            "vram_mb": None,
+            "cpu_memory_mb": None,
         }
