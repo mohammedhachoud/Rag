@@ -157,6 +157,33 @@ This classifies misses, partial recall, distractors, chunk-size effects, lexical
 - `results/failure_analysis.json`
 - `results/failure_analysis.csv`
 
+## Compare answer generation
+
+With Qdrant and Ollama running and both Granite models installed, compare the
+3B and 8B generators with three and five context chunks:
+
+```powershell
+python -m src.evaluation.generation_benchmark
+```
+
+For a quick smoke test, use `--limit 5`. The benchmark writes
+`results/generation_benchmark_results.json` and reports context size, grounded
+answer rate, correct citation rate, and mean/p95 response time for:
+
+- Granite 3B - Top 3 chunks
+- Granite 3B - Top 5 chunks
+- Granite 8B - Top 3 chunks
+- Granite 8B - Top 5 chunks
+
+Groundedness is conservatively checked from observable citations: every cited
+source must occur in the supplied context, and at least one citation must map to
+a gold-relevant chunk. Citation correctness is the fraction of citations that
+map to gold-relevant chunks. The JSON also includes full answers, source chunk
+IDs, timing details, and expected-answer word recall for auditing. Override local
+Ollama tags with `--three-b-model` or `--eight-b-model` when needed.
+The benchmark runs one Granite model at a time and unloads it before loading the
+next, avoiding both models occupying system and GPU memory simultaneously.
+
 ## Ask a question with the RAG pipeline
 
 With Qdrant and Ollama running:

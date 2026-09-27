@@ -26,9 +26,9 @@ class OllamaGenerator:
         context_length: int = 4096,
     ) -> None:
         self.model = (
-            #model
-            #or os.getenv("OLLAMA_MODEL")
-             DEFAULT_MODEL
+            model
+            or os.getenv("OLLAMA_MODEL")
+            or DEFAULT_MODEL
         )
 
         self.host = (
@@ -109,3 +109,11 @@ class OllamaGenerator:
                 tokens_per_second
             ),
         }
+
+    def unload(self) -> None:
+        """Release this model from Ollama's CPU/GPU memory."""
+        self.client.generate(
+            model=self.model,
+            prompt="",
+            keep_alive=0,
+        )
