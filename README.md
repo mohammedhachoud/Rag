@@ -12,6 +12,12 @@ A reproducible benchmark for comparing sparse and dense retrieval in a retrieval
 - Precision@5, Recall@5, MRR, and latency measurements
 - Per-query failure analysis exported as JSON and CSV
 - A dense-retrieval RAG pipeline backed by Ollama
+- Local LLM comparison between Granite 3B and Granite 8B, using three- and
+  five-chunk contexts to identify which model configuration best fits the RAG
+  workload
+- Generation quality and resource measurements, including answer correctness,
+  groundedness, citation accuracy, response time, token throughput, RAM, and
+  VRAM usage
 
 ## Project structure
 
