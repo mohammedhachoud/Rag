@@ -1,8 +1,8 @@
 # Retrieval evaluation data
 
-`out_of_domain_eval.json` is the gold dataset for comparing retrieval methods over the two processed NIST documents. It contains 100 questions across lexical, semantic, definition, factual, reasoning, and multi-chunk query types.
+`synthetic_eval.json` is the gold dataset for comparing retrieval methods over the two processed NIST documents. It contains 100 questions across lexical, semantic, definition, factual, reasoning, and multi-chunk query types.
 
-The file is a closed-corpus retrieval set: every question is answerable from the indexed NIST documents. The `out_of_domain` name should therefore mean that the NIST subject matter is outside the application's main domain, not that the answers come from documents absent from the retrieval corpus.
+The file is a closed-corpus retrieval set: every question is answerable from the indexed NIST documents.
 
 ## Relevance policy
 

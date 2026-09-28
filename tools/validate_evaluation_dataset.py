@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_DATASET = ROOT / "data" / "evaluation" / "out_of_domain_eval.json"
+DEFAULT_DATASET = ROOT / "data" / "evaluation" / "synthetic_eval.json"
 EXPECTED_TYPE_COUNTS = {
     "direct_lexical": 20,
     "paraphrased_semantic": 30,

@@ -2,6 +2,23 @@
 
 A reproducible benchmark for comparing sparse and dense retrieval in a retrieval-augmented generation (RAG) workflow. The project extracts text from PDFs, creates token-aware corpora, indexes embeddings in Qdrant, evaluates BM25 and dense retrieval, analyzes failures, and can generate grounded answers with a local Ollama model.
 
+## Technical article companion
+
+This repository is the reproducibility companion for Mohammed Hachoud's technical
+article, [*From Documents to Grounded Answers: Lessons from Building a RAG
+Assistant*](https://medium.com/@m.hachoud/from-documents-to-grounded-answers-lessons-from-building-a-rag-assistant-33a586c649b1).
+The article explains the design choices and summarizes the findings; this repository
+contains the implementation, evaluation data, configurations, and detailed
+results behind its retrieval and generation tables. It describes a separate
+experiment and not the implementation of the government-oriented chatbot
+mentioned in the article.
+
+For the exact version associated with the article, use the `v1.0.0` release:
+
+```powershell
+git checkout v1.0.0
+```
+
 ## What is included
 
 - PDF text extraction with page-level source metadata
@@ -154,6 +171,17 @@ python src/evaluation/benchmark.py
 
 The benchmark reads `data/evaluation/synthetic_eval.json`, evaluates all four retrieval configurations at `top_k=5`, prints a summary, and writes `results/benchmark_results.json`.
 
+To reproduce Table 1 of the article from the supplied processed corpus and
+evaluation set, start Qdrant and run:
+
+```powershell
+python src/ingestion/ingest_embeddings.py
+python src/evaluation/benchmark.py
+```
+
+The table's summary values and the complete per-query records are in
+[`results/benchmark_results.json`](results/benchmark_results.json).
+
 Metrics reported for each system are:
 
 - Precision@5
@@ -185,6 +213,19 @@ With Qdrant and Ollama running and both Granite models installed, compare the
 python -m src.evaluation.generation_benchmark
 ```
 
+To reproduce Table 2, install the exact Ollama model tags and run the complete
+50-question benchmark:
+
+```powershell
+ollama pull granite4.1:3b
+ollama pull granite4.1:8b-q4_K_M
+python -m src.evaluation.generation_benchmark
+```
+
+The table's summary values, individual generated answers, citations, timings,
+and memory observations are in
+[`results/generation_benchmark_results.json`](results/generation_benchmark_results.json).
+
 For a quick smoke test, use `--limit 5`. The benchmark writes
 `results/generation_benchmark_results.json` and reports context size, grounded
 answer rate, correct citation rate, and mean/p95 response time for:
@@ -206,6 +247,27 @@ Answer correctness is reported as the percentage meeting a semantic-similarity
 threshold against the gold answer (default `0.75`, configurable with
 `--correctness-threshold`). CPU model-memory and VRAM allocations come from
 Ollama and are included per answer and in the summary.
+
+### Table 2 environment
+
+Table 2 was produced on the following local environment:
+
+| Component | Recorded environment |
+|---|---|
+| Operating system | Windows NT 10.0.26200.0, 64-bit |
+| Processor | 12th Gen Intel Core i7-12700 |
+| Physical memory | 31.72 GiB |
+| Python | 3.12.10 (project virtual environment) |
+| Ollama server/CLI | 0.34.4 |
+| Generator models | `granite4.1:3b` (`6fd349357287`), `granite4.1:8b-q4_K_M` (`444af1c4b2fe`) |
+| Generation device observation | Ollama reported `0 MB` VRAM allocation for every measured configuration; CPU model memory was approximately 2,791 MB for 3B and 6,607 MB for 8B |
+
+The important Python package versions are pinned in
+[`requirements.txt`](requirements.txt), including `ollama==0.6.2`,
+`qdrant-client==1.19.1`, `rank-bm25==0.2.2`,
+`sentence-transformers==6.0.1`, `numpy==2.5.3`, and
+`scikit-learn==1.9.1`. The `ollama` Python package version is distinct from the
+Ollama server/CLI version shown above.
 
 ## Ask a question with the RAG pipeline
 
@@ -253,3 +315,28 @@ storage settings.
 - BM25 runs locally from the JSON chunk files; it does not require Qdrant.
 - Dense retrieval and the benchmark require Qdrant to be available.
 - Answer generation is local and requires Ollama; retrieval evaluation does not.
+
+## Citation
+
+If you use this repository or its benchmark results, cite the article and the
+associated software release:
+
+```bibtex
+@software{hachoud2026ragbenchmark,
+  author  = {Mohammed Hachoud},
+  title   = {RAG Retrieval Benchmark: Reproducibility Artifact for
+             Building a RAG Assistant},
+  year    = {2026},
+  version = {1.0.0},
+  url     = {https://github.com/mohammedhachoud/Rag}
+}
+```
+
+Update this entry with the article venue, publication URL, and DOI when they
+become available.
+
+## License
+
+This project is released under the [MIT License](LICENSE). The source documents
+under `data/raw/` remain subject to their original publishers' terms and are not
+relicensed by this repository.
